@@ -1,0 +1,60 @@
+[gd_scene load_steps=4 format=3 uid="uid://c0sk0qxbh1343"]
+
+[ext_resource type="Script" uid="uid://dbfs63l2y8b3u" path="res://scenes/main.gd" id="1_0wfyh"]
+[ext_resource type="PackedScene" uid="uid://bl42b85ecpo53" path="res://scenes/tile.tscn" id="1_o5qli"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_0wfyh"]
+font_color = Color(0, 100, 0, 1)
+
+[node name="main" type="Node2D"]
+script = ExtResource("1_0wfyh")
+tile_scene = ExtResource("1_o5qli")
+number_of_rows = 20
+number_of_columns = 20
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(451, 420)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+offset_top = -29.0
+offset_right = 900.0
+offset_bottom = 11.0
+
+[node name="Panel" type="Panel" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="label_timer" type="Label" parent="HBoxContainer/Panel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.5
+offset_top = -11.5
+offset_right = 20.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "00:00"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="pc_gameover" type="PanelContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label_game_finish" type="Label" parent="HBoxContainer/pc_gameover"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+text = "Game Over!"
+label_settings = SubResource("LabelSettings_0wfyh")
+horizontal_alignment = 1
+
+[node name="Restart_Button" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "Restart"
